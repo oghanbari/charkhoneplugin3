@@ -16,6 +16,7 @@ dependencies {
     compile ':bouncycastle@aar'
     compile ':inAppSDK@aar'
 	compile "net.jhoobin:amaroid-common:1.0.3"
+	compile ':amaroid-and@aar'
 }
 android {
     packagingOptions {

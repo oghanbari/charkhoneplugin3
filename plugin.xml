@@ -27,7 +27,30 @@
       </feature>
     </config-file>
 
+
+    <!-- amaroid -->
+    <asset src="www/amaroid.js" target="js/amaroid.js"/>
+  
+    <js-module src="www/amaroid.js" name="amaroid">
+      <clobbers target="cordova.plugins.Amaroid" />
+    </js-module>
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="AmaroidBridge">
+        <param name="android-package" value="net.jhoobin.cordovabridge.AmaroidBridge"/>
+      </feature>
+    </config-file>
+    <!-- /amaroid -->
+
+
+
 	<framework src="src/android/plugin.gradle" custom="true" type="gradleReference" />
+
+    <!-- amaroid -->
+    <source-file src="src/android/libs/amaroid-and.aar" target-dir="libs" />
+    <source-file src="src/android/AmaroidBridge.java" target-dir="src/net/jhoobin/cordovabridge/"/>
+    <!-- /amaroid -->
+
 	<!--<source-file src="src/android/libs/gson-2.8.5.jar" target-dir="libs" />-->
 	<source-file src="src/android/libs/bouncycastle.aar" target-dir="libs" />
 	<source-file src="src/android/libs/inAppSDK.aar" target-dir="libs" />
@@ -46,6 +69,10 @@
     <source-file src="src/android/Security.java" target-dir="src/com/alexdisler/inapppurchases" />
     <source-file src="src/android/SkuDetails.java" target-dir="src/com/alexdisler/inapppurchases" />
 	<source-file src="src/android/billing/IInAppBillingService.aidl" target-dir="src/com/android/vending/billing" />
+
+    <!-- amaroid -->
+    <hook type="before_build" src="scripts/AddAmaroidIdToStringsXml.js" />
+    <!-- /amaroid -->
 	
   </platform>
 
