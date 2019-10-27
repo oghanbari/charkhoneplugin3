@@ -28,9 +28,7 @@
     </config-file>
 
 
-    <!-- amaroid -->
-    <asset src="www/amaroid.js" target="js/amaroid.js"/>
-  
+    <!-- amaroid --> 
     <js-module src="www/amaroid.js" name="amaroid">
       <clobbers target="cordova.plugins.Amaroid" />
     </js-module>
@@ -47,7 +45,10 @@
 	<framework src="src/android/plugin.gradle" custom="true" type="gradleReference" />
 
     <!-- amaroid -->
-    <source-file src="src/android/libs/amaroid-and.aar" target-dir="libs" />
+    <config-file parent="/manifest/application" target="AndroidManifest.xml">
+         <meta-data android:name="net.jhoobin.amaroidsdk.amaroidId" android:value="53127936" />
+    </config-file>
+
     <source-file src="src/android/AmaroidBridge.java" target-dir="src/net/jhoobin/cordovabridge/"/>
     <!-- /amaroid -->
 
